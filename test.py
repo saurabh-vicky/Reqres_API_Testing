@@ -3,7 +3,8 @@ import pytest
 
 @pytest.mark.parametrize("api_fixture",
                          [("get", "https://reqres.in/api/users?page=2"),
-                          ("post", "https://reqres.in/api/login", {"email": "eve.holt@reqres.in", "password": "cityslicka"})],
+                          ("post", "https://reqres.in/api/login", {"email": "eve.holt@reqres.in", "password": "cityslicka"}), 
+                          ("get", "https://reqres.in/api/users?delay=3")],
                          indirect=True)
 def test_200(api_fixture):
     assert api_fixture == 200
